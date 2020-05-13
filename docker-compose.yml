@@ -1,8 +1,22 @@
 version: '3'
 services:
-  web:
-    build: .
+  jenkins:
+    container_name: jenkins_test
+    image: jenkinsci/blueocean
+    user: root
     ports:
-      - "5000:5000"
-  redis:
-    image: "redis:alpine"
+      - 8080:8080
+      - 50000:50000
+    volumes:
+      - ./jenkins-home:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+
+
+#5d2b432431684354962c67f661e2ddfd
+#fd2da5fe0d2d4bbeb1d005bb377b6e5d
+#a9d0731ef31a489e9133143d8705e0ae
+#Digest: sha256:66e31fc10d64c5425f38e1ff31123201ce81367e68d85111a569bd011f2ea807
+#git add .
+#git commit -m "<message>"
+#git remote add origin <https://github.com/saloni-2404/ubuntu_image_101.git>
+#git push -u origin master
